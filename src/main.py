@@ -7,7 +7,12 @@ from textwrap import dedent
 from typing import Any, Dict, List, Union
 
 import requests
-
+import os
+USERNAME = os.getenv('USERNAME')
+PASSWORD = os.getenv('PASSWORD')
+INDEX = os.getenv('INDEX')
+UNIT_INDEX = os.getenv('UNIT_INDEX')
+TIME = os.getenv('TIME')
 
 def login():
     '''登录，cookie由session处理
@@ -23,8 +28,8 @@ def login():
         ***************************************************
     '''))
 
-    username = input('Username: ')
-    password = input('Password: ')
+    username = USERNAME
+    password = PASSWORD
 
     print('Login...', end=' ')
     response = session.get(
@@ -64,7 +69,8 @@ def get_target_course_info():
         print('[id:{:>2d}]  完成度 {:>3d}%  {}'.format(index, course['per'], course['name']))
 
     #  get cid(course id) and uid(user id) and class id
-    index = int(input('\n请输入需要刷时长的课程id（id为上方[]内的序号）: '))
+    # index = int(input('\n请输入需要刷时长的课程id（id为上方[]内的序号）: '))
+    index = INDEX
     cid = str(courseList[index - 1]['cid'])
     response = session.get(
         'https://welearn.sflep.com/2019/student/course_info.aspx?cid=' + cid,
@@ -99,7 +105,8 @@ def choose_unit():
         print(f"""[id:{index:>2d}]  {unit['unitname']}  {unit['name']}""")
 
     print("\n\n")
-    unitIndex = int(input('请选择要刷时长的单元id（id为上方[]内的序号，输入0为刷全部单元）： '))
+    # unitIndex = int(input('请选择要刷时长的单元id（id为上方[]内的序号，输入0为刷全部单元）： '))
+    unitIndex = UNIT_INDEX
 
 
 def input_time():
@@ -115,7 +122,7 @@ def input_time():
     '''))
     print("\n\n")
 
-    input_ = input("请严格按照以上格式输入: ")
+    input_ = TIME # input("请严格按照以上格式输入: ")
     if(',' in input_):
         try:
             targetTime = [int(temp) for temp in input_.split(',')]
