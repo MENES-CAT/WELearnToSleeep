@@ -29,9 +29,9 @@ jobs:
       env:
         USERNAME: ${{ secrets.USERNAME }}
         PASSWORD: ${{ secrets.PASSWORD }}
-        TIME: ${{ secrets.TIME }}
-        INDEX: ${{ secrets.INDEX }}
-        UNIT_INDEX: ${{ secrets.UNIT_INDEX }}
+        TIME: 100,200
+        INDEX: 1
+        UNIT_INDEX: 2
       run: |
         python src/main.py
 
