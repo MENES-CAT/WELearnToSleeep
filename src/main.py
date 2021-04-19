@@ -70,7 +70,7 @@ def get_target_course_info():
 
     #  get cid(course id) and uid(user id) and class id
     # index = int(input('\n请输入需要刷时长的课程id（id为上方[]内的序号）: '))
-    index = INDEX
+    index = int(INDEX)
     cid = str(courseList[index - 1]['cid'])
     response = session.get(
         'https://welearn.sflep.com/2019/student/course_info.aspx?cid=' + cid,
@@ -106,7 +106,7 @@ def choose_unit():
 
     print("\n\n")
     # unitIndex = int(input('请选择要刷时长的单元id（id为上方[]内的序号，输入0为刷全部单元）： '))
-    unitIndex = UNIT_INDEX
+    unitIndex = int(UNIT_INDEX)
 
 
 def input_time():
