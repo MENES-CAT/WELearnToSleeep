@@ -30,6 +30,8 @@ jobs:
         USERNAME: ${{ secrets.USERNAME }}
         PASSWORD: ${{ secrets.PASSWORD }}
         TIME: ${{ secrets.TIME }}
+        INDEX: ${{ secrets.INDEX }}
+        UNIT_INDEX: ${{ secrets.UNIT_INDEX }}
       run: |
-        python src/test.py
+        python src/main.py
 
