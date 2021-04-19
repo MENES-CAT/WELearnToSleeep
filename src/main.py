@@ -321,7 +321,7 @@ async def watcher():
 
             for index, error in enumerate(errors, start=1):
                 print(f"第{index}个错误章节 : {error}")
-
+            exit()
             print('回到选课处！！')
             print("\n\n")
             maxLearningTime = 0
