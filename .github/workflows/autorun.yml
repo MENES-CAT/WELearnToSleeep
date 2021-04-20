@@ -36,7 +36,7 @@ jobs:
         PASSWORD: ${{ secrets.PASSWORD }}
         TIME: 100,200
         INDEX: 1
-        UNIT_INDEX: 2
+        UNIT_INDEX: 3
       run: |
         python src/main.py
 
