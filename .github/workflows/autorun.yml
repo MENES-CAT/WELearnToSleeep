@@ -8,6 +8,11 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
+  workflow_dispatch:
+  schedule:
+    - cron: '30 23 * * *'
+  repository_dispatch:
+    types: joy
 
 jobs:
   build:
